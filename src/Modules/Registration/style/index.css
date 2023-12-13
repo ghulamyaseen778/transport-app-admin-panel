@@ -1,0 +1,24 @@
+.registration-backgorund {
+  background: linear-gradient(90deg, #193a53 -3.14%, #356a81 99.79%);
+  width: 100vw;
+  height: 100vh;
+}
+.registration-form .ant-form-item-label > label {
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 400;
+  color: white;
+}
+.registration-form .ant-input {
+  padding: 8px 10px !important;
+}
+.registration-form .ant-form-item {
+  margin-bottom: 10px !important;
+}
+.registration-form .ant-input-affix-wrapper {
+  padding: 0 10px !important;
+}
+.registration-form .ant-btn {
+  height: 40px !important;
+  
+}

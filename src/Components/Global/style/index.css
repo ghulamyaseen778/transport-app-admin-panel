@@ -1,0 +1,16 @@
+.header-input .ant-input-affix-wrapper {
+    padding: 8px 10px !important;
+  }
+  .sidebar-card .ant-card-body{
+    padding: 0px !important;
+  }
+  .active>svg{
+    color: white !important;
+  }
+.siderbarIcon:hover{
+    background-color: rgba(25, 58, 83, 0.10);
+}
+.fleetCard:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
