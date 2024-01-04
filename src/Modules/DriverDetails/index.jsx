@@ -506,53 +506,59 @@ const DriverDetails = () => {
             className="dnv-o"
             style={{
               position: "relative",
-
               height: "100%",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div>
-                <Tooltip
-                  title="Driven hours
+            <div style={{width:"100%",display:"flex",justifyContent:"center"}}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  position: "relative",
+                  height: "200px",
+                  width: "200px",
+                }}
+              >
+                <div>
+                  <Tooltip
+                    title="Driven hours
 13,5 h"
-                >
-                  <Progress
-                    size={200}
-                    strokeColor="#068221"
-                    percent={80}
-                    type="circle"
-                  />
-                </Tooltip>
-              </div>
-              <div style={{ position: "absolute", top: 50, left: 86 }}>
-                <Tooltip
-                  title="break time
+                  >
+                    <Progress
+                      size={200}
+                      strokeColor="#068221"
+                      percent={80}
+                      type="circle"
+                    />
+                  </Tooltip>
+                </div>
+                <div style={{ position: "absolute", top: 25, left: 25 }}>
+                  <Tooltip
+                    title="break time
 7 h"
-                >
-                  <Progress
-                    size={150}
-                    strokeColor="#FFD703"
-                    percent={60}
-                    type="circle"
-                  />
-                </Tooltip>
-              </div>
-              <div style={{ position: "absolute", top: 76, left: 110 }}>
-                <Tooltip title="service
-3,5 h">
-                <Progress
-                  size={100}
-                  strokeColor="#F07F21"
-                  percent={20}
-                  type="circle"
-                />
-                </Tooltip>
+                  >
+                    <Progress
+                      size={150}
+                      strokeColor="#FFD703"
+                      percent={60}
+                      type="circle"
+                    />
+                  </Tooltip>
+                </div>
+                <div style={{ position: "absolute", top: 50, left: 50 }}>
+                  <Tooltip
+                    title="service
+3,5 h"
+                  >
+                    <Progress
+                      size={100}
+                      strokeColor="#F07F21"
+                      percent={20}
+                      type="circle"
+                    />
+                  </Tooltip>
+                </div>
               </div>
             </div>
             <div
