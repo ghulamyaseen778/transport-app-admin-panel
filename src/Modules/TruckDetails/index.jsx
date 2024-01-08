@@ -273,9 +273,11 @@ const TruckDetails = () => {
                       fontWeight: "600",
                       fontSize: 16,
                       color: "#193A53",
+                      display: "inline-block",
+                      overflow: "hidden",
                     }}
                   >
-                    [Insert link here]{" "}
+                    https://www.google.com/maps/@24.9102281,67.1013203,12.94z?entry=ttu
                   </div>
                 </div>
               </div>
@@ -392,7 +394,7 @@ const TruckDetails = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                marginTop:10
+                marginTop: 10,
               }}
             >
               <div

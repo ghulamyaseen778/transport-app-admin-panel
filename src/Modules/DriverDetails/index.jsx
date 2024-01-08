@@ -1,12 +1,17 @@
-import { Card, Col, Progress, Row, Table, Tooltip } from "antd";
+import { Card, Col, Progress, Row, Table, } from "antd";
 import React from "react";
 import { COLOR } from "../../../Constant/Color";
 import avatar from "../../assets/avatar.png";
 import email from "../../assets/emailIcon.png";
 import Phone from "../../assets/phoneIcon.png";
 import "./style/index.css";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DriverDetails = () => {
+  
   const data = [
     {
       Activity: "Driving",
@@ -58,6 +63,26 @@ const DriverDetails = () => {
       key: "Status",
     },
   ];
+  const datas = {
+    labels: ['Driver', 'Break time', 'Service'],
+    datasets: [
+      {
+        label: 'driver',
+        data: [12, 14,6],
+        backgroundColor: [
+          '#068221',
+          "#FFD703",
+          "#F07F21"
+        ],
+        borderColor: [
+          '#068221',
+          "#FFD703",
+          "#F07F21"
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
   return (
     <div>
       <Row gutter={12} style={{ height: "100%", marginBottom: 20 }}>
@@ -437,9 +462,11 @@ const DriverDetails = () => {
                             fontWeight: "600",
                             fontSize: 14,
                             color: "#193A53",
+                            overflow:"hidden",
+                           
                           }}
                         >
-                          [Insert link here]{" "}
+                          https://www.google.com/maps/@24.9102281,67.1013203,12.94z?entry=ttu
                         </div>
                       </div>
                     </div>
@@ -509,8 +536,14 @@ const DriverDetails = () => {
               height: "100%",
             }}
           >
-            <div style={{width:"100%",display:"flex",justifyContent:"center"}}>
-              <div
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              {/* <div
                 style={{
                   display: "flex",
                   justifyContent: "center",
@@ -559,7 +592,8 @@ const DriverDetails = () => {
                     />
                   </Tooltip>
                 </div>
-              </div>
+              </div> */}
+              <Pie data={datas} />
             </div>
             <div
               style={{
