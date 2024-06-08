@@ -1,19 +1,19 @@
 import { Card, Layout } from "antd";
 import React from "react";
-import HeaderComp from "../src/Components/Global";
-import Sidebar from "../src/Components/Global/Sidebar";
+import HeaderComp from "../Components/Global";
+import Sidebar from "../Components/Global/Sidebar";
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "../src/Modules/Dashboard";
-import RoutesComp from "../src/Modules/Routes";
-import Fleet from "../src/Modules/Fleet";
-import Driver from "../src/Modules/Driver";
-import Setting from "../src/Modules/Setting";
-import CreateTruck from "../src/Modules/Fleet/Screens/CreateTruck";
-import DriverCreate from "../src/Modules/Driver/Screens";
-import TruckDetails from "../src/Modules/TruckDetails";
-import DriverDetails from "../src/Modules/DriverDetails";
+import Dashboard from "../Modules/Dashboard";
+import RoutesComp from "../Modules/Routes";
+import Fleet from "../Modules/Fleet";
+import Driver from "../Modules/Driver";
+import Setting from "../Modules/Setting";
+import CreateTruck from "../Modules/Fleet/Screens/CreateTruck";
+import DriverCreate from "../Modules/Driver/Screens";
+import TruckDetails from "../Modules/TruckDetails";
+import DriverDetails from "../Modules/DriverDetails";
 const { Header, Footer, Sider, Content } = Layout;
-const LayOut = () => {
+const LayOut = ({load}) => {
   const headerStyle = {
     color: "#fff",
     height: 80,
@@ -77,10 +77,10 @@ const LayOut = () => {
               <Route path="/" element={<Dashboard />} />
               <Route path="/route" element={<RoutesComp />} />
               <Route path="/fleet" element={<Fleet />} />
-              <Route path="/fleet/create" element={<CreateTruck />} />
+              <Route path="/fleet/create" element={<CreateTruck load={load} />} />
               <Route path="/fleet/:id" element={<TruckDetails />} />
               <Route path="/driver" element={<Driver />} />
-              <Route path="/driver/create" element={<DriverCreate />} />
+              <Route path="/driver/create" element={<DriverCreate load={load} />} />
               <Route path="/driver/:id" element={<DriverDetails />} />
               <Route path="/setting" element={<Setting />} />
             </Routes>

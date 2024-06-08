@@ -2,7 +2,7 @@ import React from "react";
 import img from "../../assets/fleetTruck.png";
 import { useNavigate } from "react-router-dom";
 
-const FleetCard = () => {
+const FleetCard = ({name,reg,brand}) => {
   const navigation = useNavigate()
   return (
     <div
@@ -31,7 +31,7 @@ const FleetCard = () => {
             color: "#193A53",
           }}
         >
-          USDOT 091805
+         {name?name:"USDOT 091805"}
         </div>
         <div
           style={{
@@ -41,7 +41,7 @@ const FleetCard = () => {
             color: "#F07F21",
           }}
         >
-          DESK Traders
+          {reg?reg:"DESK Traders"}
         </div>
       </div>
       <div style={{ display: "flex", alignItems: "center" }}>
@@ -54,7 +54,7 @@ const FleetCard = () => {
               color: "#636363",
             }}
           >
-            Type: Truck
+            Type: {brand}
           </div>
           <div
             style={{

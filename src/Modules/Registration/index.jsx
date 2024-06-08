@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style/index.css";
-import { Button, Col, Form, Input, Row } from "antd";
+import { Button, Col, Form, Input, Row, message } from "antd";
 import truckImg from "../../assets/Truck.svg";
 import logo from "../../assets/Logo.png";
-import { COLOR } from "../../../Constant/Color";
+import { COLOR } from "../../Constant/Color";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-  const navigation = useNavigate()
+const Login = ({ load }) => {
+  const navigation = useNavigate();
+  useEffect(()=>{
+    if (sessionStorage.getItem("log")) {
+      navigation("/dashboard")
+    }
+  },[])
+  const onSubmit = (e) => {
+    load(true);
+    console.log(e);
+    setTimeout(() => {
+      if ((e.EmployeeID = "TP-0010" && e.Password == "12345678")) {
+        message.success("successfully Login");
+        load(false);
+        sessionStorage.setItem("log","done")
+        setTimeout(()=>{
+          navigation("/dashboard")
+        },1000)
+      } else {
+        message.error("Enter correct User Id or Password");
+        load(false);
+      }
+      
+    }, 5000);
+  };
   return (
     <div className="registration-backgorund">
       <Row style={{ height: "100vh" }}>
@@ -59,10 +82,11 @@ const Login = () => {
               layout="vertical"
               autoComplete="off"
               style={{ width: "100%" }}
+              onFinish={onSubmit}
             >
               <Form.Item
-                label="Employee ID "
-                name="Employee ID "
+                label="EmployeeID"
+                name="EmployeeID"
                 rules={[
                   {
                     required: true,
@@ -73,8 +97,8 @@ const Login = () => {
                 <Input placeholder="Insert User ID" style={{ width: "100%" }} />
               </Form.Item>
               <Form.Item
-                label="Password "
-                name="Password "
+                label="Password"
+                name="Password"
                 rules={[
                   {
                     required: true,
@@ -119,9 +143,9 @@ const Login = () => {
                 color: "white",
                 fontFamily: "Poppins",
                 fontWeight: "400",
-                cursor:"pointer"
+                cursor: "pointer",
               }}
-              onClick={()=>navigation("/signup")}
+              onClick={() => navigation("/signup")}
             >
               Don’t have an account?
               <span
@@ -131,7 +155,8 @@ const Login = () => {
                   fontWeight: "600",
                 }}
               >
-               {' '} Sign up
+                {" "}
+                Sign up
               </span>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { Card, Col, Row } from "antd";
 import React from "react";
 import img from "../../assets/fleetTruckDetail.png";
-import { COLOR } from "../../../Constant/Color";
+import { COLOR } from "../../Constant/Color";
 import avatar from "../../assets/avatar.png";
 import email from "../../assets/emailIcon.png";
 import Phone from "../../assets/phoneIcon.png";

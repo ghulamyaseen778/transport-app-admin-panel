@@ -1,11 +1,24 @@
-import { Button, Card, Col, Form, Input, Row, Select } from "antd";
-import React from "react";
-import "../style/index.css"
+import { Button, Card, Col, Form, Input, Row, Select, message } from "antd";
+import React, { useContext } from "react";
+import "../style/index.css";
+import { Truck } from "../../../CONTEXT";
 
-const CreateTruck = () => {
+const CreateTruck = ({ load }) => {
   const [form] = Form.useForm();
   const onReset = () => {
     form.resetFields();
+  };
+  const { truck, setTruck } = useContext(Truck);
+
+  const onSubmit = (e) => {
+    load(true);
+    console.log(e);
+    setTimeout(() => {
+      setTruck([...truck, e]);
+      form.resetFields();
+      load(false);
+      message.success("Sucssefully Uploaded");
+    }, 3000);
   };
   return (
     <Card>
@@ -19,7 +32,12 @@ const CreateTruck = () => {
       >
         New Truck
       </div>
-      <Form layout="vertical" className="routes-from ">
+      <Form
+        layout="vertical"
+        className="routes-from "
+        form={form}
+        onFinish={onSubmit}
+      >
         <Row gutter={12}>
           <Col span={8}>
             <Form.Item
@@ -34,7 +52,19 @@ const CreateTruck = () => {
             >
               <Select
                 placeholder="Select Brand"
-                options={[{ label: "Karachi", value: "karachi" }]}
+                options={[
+                  { value: "Chevrolet", name: "Chevrolet" },
+                  { value: "Ford", name: "Ford" },
+                  { value: "Ram", name: "Ram" },
+                  { value: "GMC", name: "GMC" },
+                  { value: "Toyota", name: "Toyota" },
+                  { value: "Nissan", name: "Nissan" },
+                  { value: "Honda", name: "Honda" },
+                  { value: "Jeep", name: "Jeep" },
+                  { value: "Freightliner", name: "Freightliner" },
+                  { value: "Peterbilt", name: "Peterbilt" },
+                  { value: "Kenworth", name: "Kenworth" },
+                ]}
               />
             </Form.Item>
           </Col>
@@ -51,7 +81,10 @@ const CreateTruck = () => {
             >
               <Select
                 placeholder="Select Model"
-                options={[{ label: "Karachi", value: "karachi" }]}
+                options={[
+                  { name: "Silverado", value: "Silverado" },
+                  { name: "Colorado", value: "Colorado" },
+                ]}
               />
             </Form.Item>
           </Col>
@@ -91,7 +124,7 @@ const CreateTruck = () => {
                 Discard
               </Button>
               <Button htmlType="submit" type="primary">
-                Schedule{" "}
+                Create{" "}
               </Button>
             </div>
           </Col>

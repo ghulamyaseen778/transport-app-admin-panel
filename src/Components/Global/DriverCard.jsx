@@ -2,22 +2,29 @@ import React from "react";
 import img from "../../assets/avatar.png";
 import { useNavigate } from "react-router-dom";
 
-const DriverCard = ({ name, status,color }) => {
-  const navigation = useNavigate()
+const DriverCard = ({ name, status, color }) => {
+  const navigation = useNavigate();
   return (
     <div
-    onClick={()=>navigation(`/dashboard/driver/${name.split(" ").join("-")}`)}
+      onClick={() =>
+        navigation(`/dashboard/driver/${name.split(" ").join("-")}`)
+      }
       style={{
         display: "flex",
         alignItems: "center",
         backgroundColor: "#EBEBEB",
         padding: "6px 2px",
         borderRadius: 6,
-        marginTop:10,
-        cursor:"pointer"
+        marginTop: 10,
+        cursor: "pointer",
       }}
     >
-      <img style={{ width: 60, height: 60 }} src={img} />
+      <img
+        style={{ width: 60, height: 60, borderRadius: 100 }}
+        src={`https://source.unsplash.com/random?male&sig=${
+          Math.floor(Math.random() * 1000) * 1000
+        }`}
+      />
       <div
         style={{
           display: "flex",

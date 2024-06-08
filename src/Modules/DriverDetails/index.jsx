@@ -1,6 +1,6 @@
 import { Card, Col, Progress, Row, Table, } from "antd";
 import React from "react";
-import { COLOR } from "../../../Constant/Color";
+import { COLOR } from "../../Constant/Color";
 import avatar from "../../assets/avatar.png";
 import email from "../../assets/emailIcon.png";
 import Phone from "../../assets/phoneIcon.png";

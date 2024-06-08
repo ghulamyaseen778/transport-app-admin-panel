@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./style/index.css";
-import { Card, Col, Row } from "antd";
-import { COLOR } from "../../../Constant/Color";
+import { Card, Col, Empty, Row } from "antd";
+import { COLOR } from "../../Constant/Color";
 import FleetCard from "../../Components/Global/FleetCard";
 import { useNavigate } from "react-router-dom";
+import { Truck } from "../../CONTEXT";
 
 const Fleet = () => {
-  const navigation = useNavigate()
+  const navigation = useNavigate();
+  const { truck, setTruck } = useContext(Truck);
   return (
     <Card>
       <div
@@ -34,7 +36,7 @@ const Fleet = () => {
             borderRadius: 5,
             cursor: "pointer",
           }}
-          onClick={()=>navigation("/dashboard/fleet/create")}
+          onClick={() => navigation("/dashboard/fleet/create")}
         >
           <div
             style={{
@@ -43,37 +45,37 @@ const Fleet = () => {
               fontWeight: "500",
               fontSize: 14,
             }}
-            
           >
             Create Truck
           </div>
         </div>
       </div>
       <Row gutter={12}>
-        <Col span={6}>
-          <FleetCard/>
-        </Col>
-        <Col span={6}>
-          <FleetCard/>
-        </Col>
-        <Col span={6}>
-          <FleetCard/>
-        </Col>
-        <Col span={6}>
-          <FleetCard/>
-        </Col>
-        <Col span={6}>
-          <FleetCard/>
-        </Col>
-        <Col span={6}>
-          <FleetCard/>
-        </Col>
-        <Col span={6}>
-          <FleetCard/>
-        </Col>
-        <Col span={6}>
-          <FleetCard/>
-        </Col>
+        {truck.length > 0 ? (
+          truck.map(({ Brand, Model, Registration }, ind) => {
+            return (
+              <Col span={6}>
+                <FleetCard
+                  key={ind}
+                  name={Model}
+                  reg={Registration}
+                  brand={Brand}
+                />
+              </Col>
+            );
+          })
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: 20,
+            }}
+          >
+            <Empty />
+          </div>
+        )}
       </Row>
     </Card>
   );

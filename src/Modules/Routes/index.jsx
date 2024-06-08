@@ -42,7 +42,10 @@ const RoutesComp = () => {
             >
               <Select
                 placeholder="Select city"
-                options={[{ label: "Karachi", value: "karachi" }]}
+                options={[
+                  { label: "Karachi", value: "karachi" },
+                  { label: "California", value: "dsjksj" },
+                ]}
               />
             </Form.Item>
           </Col>
@@ -59,7 +62,10 @@ const RoutesComp = () => {
             >
               <Select
                 placeholder="Select city"
-                options={[{ label: "Karachi", value: "karachi" }]}
+                options={[
+                  { label: "Karachi", value: "karachi" },
+                  { label: "New York", value: "karaddchi" },
+                ]}
               />
             </Form.Item>
           </Col>
@@ -90,7 +96,7 @@ const RoutesComp = () => {
             >
               <Select
                 placeholder="Select Driver"
-                options={[{ label: "Karachi", value: "karachi" }]}
+                options={[{ label: "Karachi", value: "karachi" },{ label: "Jhon", value: "dd" }]}
               />
             </Form.Item>
           </Col>
@@ -129,7 +135,7 @@ const RoutesComp = () => {
             >
               <Select
                 placeholder="Select Truck"
-                options={[{ label: "Karachi", value: "karachi" }]}
+                options={[{ label: "Karachi", value: "karachi" },{ label: "DE 546", value: "546" }]}
               />
             </Form.Item>
           </Col>

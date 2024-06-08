@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./style/index.css";
-import { Card, Col, Row } from "antd";
-import { COLOR } from "../../../Constant/Color";
+import { Card, Col, Empty, Row } from "antd";
+import { COLOR } from "../../Constant/Color";
 import FleetCard from "../../Components/Global/FleetCard";
 import DriverCard from "../../Components/Global/DriverCard";
 import { useNavigate } from "react-router-dom";
+import { Driver as Drivers } from "../../CONTEXT";
 
 const Driver = () => {
-  const navigation = useNavigate()
+  const navigation = useNavigate();
+  const { setDriver, driver } = useContext(Drivers);
+  console.log(driver);
   const [items, setItems] = useState([
     {
       id: 1,
@@ -121,7 +124,7 @@ const Driver = () => {
             borderRadius: 5,
             cursor: "pointer",
           }}
-          onClick={()=>navigation("/dashboard/driver/create")}
+          onClick={() => navigation("/dashboard/driver/create")}
         >
           <div
             style={{
@@ -136,14 +139,31 @@ const Driver = () => {
         </div>
       </div>
       <Row gutter={12}>
-          {items.map(({ id, status, name, color }) => {
+        {driver.length > 0 ? (
+          driver?.map(({ id, status, DriverName, color }) => {
             return (
               <Col span={6}>
-                <DriverCard status={status} color={color} name={name} />
+                <DriverCard
+                  status={"Driving"}
+                  color={"#479400"}
+                  name={DriverName}
+                />
               </Col>
             );
-          })}
-        </Row>
+          })
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: 20,
+            }}
+          >
+            <Empty />
+          </div>
+        )}
+      </Row>
     </Card>
   );
 };

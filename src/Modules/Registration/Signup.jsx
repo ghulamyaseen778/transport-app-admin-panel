@@ -3,7 +3,7 @@ import "./style/index.css";
 import { Button, Col, Form, Input, Row } from "antd";
 import truckImg from "../../assets/Truck.svg";
 import logo from "../../assets/Logo.png";
-import { COLOR } from "../../../Constant/Color";
+import { COLOR } from "../../Constant/Color";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {

@@ -51,9 +51,7 @@ const Sidebar = () => {
   ]);
   useEffect(() => {
     console.log(window.location.pathname.split("/"));
-    if (
-      window.location.pathname=="/dashboard"
-    ) {
+    if (window.location.pathname == "/dashboard") {
       setActiveSidebarItem(1);
     } else {
       for (let i = 0; i < sidebarItems.length; i++) {
@@ -69,7 +67,9 @@ const Sidebar = () => {
       <Card style={{ padding: "20px 0" }}>
         <img
           style={{ width: 150, height: 150, borderRadius: 100 }}
-          src={img}
+          src={
+            "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+          }
           alt=""
         />
         <div
